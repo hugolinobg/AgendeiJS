@@ -8,7 +8,7 @@ import Profele from './src/screens/Profile/Profile.jsx'
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Home />
+      <Appointments />
     </SafeAreaView>
   )
 }
