@@ -45,7 +45,7 @@ function Account() {
           />
         </View>
 
-        <Button text="Criar Conta" />
+        <Button text="Criar Conta" theme="primary" />
       </View>
 
       <View style={styles.signUp}>

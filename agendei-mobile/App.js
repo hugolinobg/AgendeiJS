@@ -3,12 +3,14 @@ import Login from './src/screens/Login/Login.jsx'
 import Account from './src/screens/Account/Account.jsx'
 import Home from './src/screens/Home/Home.jsx'
 import Appointments from './src/screens/Appointments/Appointments.jsx'
-import Profele from './src/screens/Profile/Profile.jsx'
+import Profile from './src/screens/Profile/Profile.jsx'
+import Services from './src/screens/Services/Services.jsx'
+import Main from './src/screens/Main/Main.jsx'
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Appointments />
+      <Services />
     </SafeAreaView>
   )
 }
@@ -17,6 +19,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 12 : 12,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 0 : 10,
   },
 })

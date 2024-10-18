@@ -4,9 +4,17 @@ import { colorsTheme, fontSizes } from '../../constants/Theme/Theme.js'
 export default StyleSheet.create({
   containerBtn: {
     width: '100%',
-    backgroundColor: colorsTheme.blue,
+
     padding: 12,
     borderRadius: 10,
+  },
+
+  primary: {
+    backgroundColor: colorsTheme.blue,
+  },
+
+  danger: {
+    backgroundColor: colorsTheme.red,
   },
 
   text: {

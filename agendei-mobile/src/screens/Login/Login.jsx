@@ -27,7 +27,7 @@ function Login() {
             style={styles.input}
           />
         </View>
-        
+
         <View style={styles.containerInput}>
           <TextInput
             placeholder="Password"
@@ -37,7 +37,7 @@ function Login() {
           />
         </View>
 
-        <Button text="Acessar" />
+        <Button text="Acessar" theme="primary" />
       </View>
 
       <View style={styles.signUp}>
