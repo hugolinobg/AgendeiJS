@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { colorsTheme, fontSizes } from '../../constants/Theme/Theme.js'
+import { colorsTheme, fontSizes } from '../../constants/theme/theme.js'
 
 export default StyleSheet.create({
   container: {
@@ -10,12 +10,22 @@ export default StyleSheet.create({
 
   banner: {
     backgroundColor: colorsTheme.blue,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 10,
+    paddingBottom: 25,
   },
 
-  text: {
+  name: {
+    fontSize: fontSizes.md,
+    color: colorsTheme.white,
+    fontWeight: 'bold',
+    marginTop: 5,
+  },
+
+  specialty: {
     fontSize: fontSizes.sm,
-    color: colorsTheme.gray1,
-    marginBottom: 15,
-    marginLeft: 10,
+    color: colorsTheme.white,
+    marginTop: 3,
   },
 })

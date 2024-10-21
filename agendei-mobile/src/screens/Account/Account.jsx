@@ -10,7 +10,7 @@ import styles from './styles.js'
 
 import Button from '../../components/Button/Button.jsx'
 import icon from '../../constants/icons/icons.js'
-import { colorsTheme } from '../../constants/Theme/Theme.js'
+import { colorsTheme } from '../../constants/theme/theme.js'
 
 function Account() {
   return (

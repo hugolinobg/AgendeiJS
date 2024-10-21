@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { colorsTheme, fontSizes } from '../../constants/Theme/Theme.js'
+import { colorsTheme, fontSizes } from '../../constants/theme/theme.js'
 
 export default StyleSheet.create({
   containerBtn: {

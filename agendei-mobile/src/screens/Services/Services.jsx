@@ -1,6 +1,7 @@
 import { FlatList, Image, SafeAreaView, Text, View } from 'react-native'
 import styles from './styles'
 import { doctors_services } from '../../constants/data/data.js'
+import Service from '../../components/Service/Service.jsx'
 import icon from '../../constants/icons/icons.js'
 
 function Services() {
@@ -17,14 +18,9 @@ function Services() {
         keyExtractor={(serv) => serv.id_service}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => {
-          return (
-            <Text>{item.description}</Text>
-            // <Doctor
-            //   name={item.name}
-            //   icon={item.icon === 'M' ? icon.male : icon.female}
-            //   specialty={item.specialty}
-            // />
-          )
+          return <Service 
+          description={item.description} 
+          price={item.price} />
         }}
       />
     </SafeAreaView>

@@ -5,7 +5,7 @@ import Home from '../Home/Home.jsx'
 import Appointments from '../Appointments/Appointments.jsx'
 import Profile from '../Profile/Profile.jsx'
 import icon from '../../constants/icons/icons.js'
-import { colorsTheme } from '../../constants/Theme/Theme.js'
+import { colorsTheme } from '../../constants/theme/theme.js'
 
 const Tab = createBottomTabNavigator()
 
