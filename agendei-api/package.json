@@ -1,0 +1,16 @@
+{
+  "name": "agendei-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "author": "Hugolino",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "node --watch --trace-warnings app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1"
+  }
+}
