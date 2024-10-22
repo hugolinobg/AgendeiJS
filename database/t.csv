@@ -1,0 +1,10 @@
+id_doctor,name,specialty,icon,created_at,updated_at
+1,Dr. Armando Matheus,Ginecologia e obstetrícia,M,2024-10-22 17:39:16,2024-10-22 17:39:16
+2,Dra. Ana Beatriz Rutini,Cardiologista,F,2024-10-22 17:39:42,2024-10-22 17:39:42
+3,Dr. Antônio Almeida Souza,Pediatria,M,2024-10-22 17:42:31,2024-10-22 17:42:31
+4,Dra. Roberta Martins,Clínica Geral,F,2024-10-22 17:46:23,2024-10-22 17:46:23
+5,Dra. Nise da Silveira,Cirurgia Plástica,F,2024-10-22 17:49:00,2024-10-22 17:49:00
+7,Dr. Jonatan Silvestre,Pediatria,M,2024-10-22 17:49:33,2024-10-22 17:49:33
+8,Dra. Adriana Melo,Clínica Geral,M,2024-10-22 17:49:41,2024-10-22 17:49:41
+9,Dr. José Eduardo Souza,Clínica Geral,F,2024-10-22 17:49:47,2024-10-22 17:49:47
+10,Dra. Valeria Petri,Cirurgia Plástica,F,2024-10-22 17:49:49,2024-10-22 17:49:49

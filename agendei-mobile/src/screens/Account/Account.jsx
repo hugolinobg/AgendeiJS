@@ -30,6 +30,22 @@ function Account() {
 
         <View style={styles.containerInput}>
           <TextInput
+            placeholder="Data de Nascimento"
+            placeholderTextColor={colorsTheme.gray2}
+            style={styles.input}
+          />
+        </View>
+
+        <View style={styles.containerInput}>
+          <TextInput
+            placeholder="Contato"
+            placeholderTextColor={colorsTheme.gray2}
+            style={styles.input}
+          />
+        </View>
+
+        <View style={styles.containerInput}>
+          <TextInput
             placeholder="E-mail"
             placeholderTextColor={colorsTheme.gray2}
             style={styles.input}

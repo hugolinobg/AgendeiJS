@@ -1,7 +1,7 @@
-import { request, response } from 'express'
+// import { request, response } from 'express'
 import doctorServices from '../services/doctorServices.js'
 
-async function findAll(req = request, res = response) {
+async function findAll(req, res) {
   try {
     const doctors = await doctorServices.findAll()
     return res.status(200).json(doctors)
@@ -13,7 +13,7 @@ async function findAll(req = request, res = response) {
   }
 }
 
-function create(req = request, res = response) {
+async function create(req, res) {
   try {
     return res.status(200).send('Server running!!!')
   } catch (error) {
@@ -24,7 +24,7 @@ function create(req = request, res = response) {
   }
 }
 
-function put(req = request, res = response) {
+async function put(req, res) {
   try {
     return res.status(200).send('Server running!!!')
   } catch (error) {
@@ -35,7 +35,7 @@ function put(req = request, res = response) {
   }
 }
 
-function deleted(req = request, res = response) {
+async function deleted(req, res) {
   try {
     return res.status(200).send('Server running!!!')
   } catch (error) {

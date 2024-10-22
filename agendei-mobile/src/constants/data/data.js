@@ -18,7 +18,7 @@ export const doctors = [
   },
   {
     id_doctor: 3,
-    name: 'Dr. Antônio Almeida Souza ',
+    name: 'Dr. Antônio Almeida Souza',
     specialty: 'Pediatria',
     icon: 'M',
     created_at: '2024-10-28T12:48:07.566+00:00',
