@@ -13,7 +13,6 @@ async function listServices(id_doctor) {
 }
 
 async function create(name, specialty, icon) {
-
   const doctor = await doctorModels.create(name, specialty, icon)
 
   return doctor

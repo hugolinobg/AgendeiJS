@@ -17,7 +17,7 @@ async function findAll(req, res) {
 
 async function listServices(req, res) {
   try {
-    const id_doctor = req.params.id_doctor
+    const id_doctor = req.params.id
 
     const service = await doctorServices.listServices(id_doctor)
 

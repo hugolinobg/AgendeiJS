@@ -18,8 +18,11 @@ async function findAll(name) {
 }
 
 async function listServices(id_doctor) {
-  
-  let sql = 'SELECT * FROM doctors_services '
+  let sql = `SELECT d.id_service, s.description, d.price 
+FROM doctors_services d 
+JOIN services s ON (s.id_service = d.id_service) 
+WHERE d.id_doctor = ? 
+ORDER BY s.description`
 
   const service = await query(sql, [id_doctor])
 
