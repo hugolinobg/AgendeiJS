@@ -20,6 +20,12 @@ async function login(email, password) {
   }
 }
 
+async function findProfile(id_user) {
+  const user = await userModels.findProfile(id_user)
+
+  return user
+}
+
 async function create(name, date_birth, fone, email, password) {
   const hashPassword = await bcrypt.hash(password, 10)
 
@@ -57,4 +63,4 @@ async function deleted(id) {
   return user
 }
 
-export default { login, create, put, deleted }
+export default { login, findProfile, create, put, deleted }

@@ -19,6 +19,21 @@ async function login(req, res) {
   }
 }
 
+async function findProfile(req, res) {
+  try {
+    const id_user = req.id_user
+
+    const user = await userServices.findProfile(id_user)
+
+    return res.status(200).json(user)
+  } catch (error) {
+    return res.status(500).json({
+      error: 'Something went wrong, please try again.',
+      message: error,
+    })
+  }
+}
+
 async function create(req, res) {
   try {
     const { name, date_birth, fone, email, password } = req.body
@@ -78,4 +93,4 @@ async function deleted(req, res) {
   }
 }
 
-export default { login, create, put, deleted }
+export default { login, findProfile, create, put, deleted }

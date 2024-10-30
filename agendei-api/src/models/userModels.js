@@ -12,6 +12,14 @@ async function listByEmail(email) {
   }
 }
 
+async function findProfile(id_user) {
+  let sql = `SELECT name, date_birth, fone, email FROM users WHERE id_user = ?`
+
+  const user = await query(sql, [id_user])
+
+  return user[0]
+}
+
 async function create(name, date_birth, fone, email, password) {
   let sql = `INSERT INTO users (name, date_birth, fone, email, password) VALUES (?, ?, ?, ?, ?) 
   returning id_user`
@@ -37,4 +45,4 @@ async function deleted(id_user) {
   return { id_user }
 }
 
-export default { listByEmail, create, put, deleted }
+export default { listByEmail, findProfile, create, put, deleted }
