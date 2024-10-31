@@ -26,13 +26,13 @@ async function findProfile(id_user) {
   return user
 }
 
-async function create(name, date_birth, fone, email, password) {
+async function create(name, date_birth, cell, email, password) {
   const hashPassword = await bcrypt.hash(password, 10)
 
   const user = await userModels.create(
     name,
     date_birth,
-    fone,
+    cell,
     email,
     hashPassword
   )
@@ -42,14 +42,14 @@ async function create(name, date_birth, fone, email, password) {
   return user
 }
 
-async function put(id, name, date_birth, fone, email, password) {
+async function put(id, name, date_birth, cell, email, password) {
   const hashPassword = await bcrypt.hash(password, 10)
 
   const user = await userModels.put(
     id,
     name,
     date_birth,
-    fone,
+    cell,
     email,
     hashPassword
   )

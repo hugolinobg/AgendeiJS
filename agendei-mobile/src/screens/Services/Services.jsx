@@ -1,8 +1,11 @@
-import { FlatList, Image, SafeAreaView, Text, View } from 'react-native'
+import { FlatList, Image, SafeAreaView, Text, View, Alert } from 'react-native'
+import { useEffect, useState } from 'react'
 import styles from './styles'
-import { doctors_services } from '../../constants/data/data.js'
+
 import Service from '../../components/Service/Service.jsx'
 import icon from '../../constants/icons/icons.js'
+
+import api from '../../constants/api/api.js'
 
 function Services(props) {
   const id_doctor = props.route.params.id_doctor
@@ -10,12 +13,34 @@ function Services(props) {
   const specialty = props.route.params.specialty
   const iconDoctor = props.route.params.icon
 
+  const [doctorsServices, setDoctorsServices] = useState([])
+
   function handleServices(id_service) {
     props.navigation.navigate('Schedule', {
-      id_service,
       id_doctor,
+      id_service,
     })
   }
+
+  async function handleLoadServices() {
+    try {
+      const response = await api.get(`/doctors/${id_doctor}/services`)
+
+      if (response.data) {
+        setDoctorsServices(response.data)
+      }
+    } catch (error) {
+      if (error.response?.data.error) {
+        Alert.alert(error.response.data.error)
+      } else {
+        Alert.alert('Ocorreu um erro. Tenta novamente mais tarde!')
+      }
+    }
+  }
+
+  useEffect(() => {
+    handleLoadServices()
+  }, [])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -26,7 +51,7 @@ function Services(props) {
       </View>
 
       <FlatList
-        data={doctors_services}
+        data={doctorsServices}
         keyExtractor={(serv) => serv.id_service}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => {

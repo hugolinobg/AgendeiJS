@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import styles from './styles.js'
 
@@ -15,8 +15,10 @@ import Button from '../../components/Button/Button.jsx'
 import icon from '../../constants/icons/icons.js'
 import { colorsTheme } from '../../constants/theme/theme.js'
 import api from '../../constants/api/api.js'
+import { AuthContext } from '../../contexts/AuthContext.js'
 
 function Login(props) {
+  const { setUser } = useContext(AuthContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -28,7 +30,10 @@ function Login(props) {
       })
 
       if (response.data) {
-        console.log(response.data)
+        api.defaults.headers.common[
+          'Authorization'
+        ] = `Bearer ${response.data.token}`
+        setUser(response.data)
       }
     } catch (error) {
       if (error.response?.data.error) {

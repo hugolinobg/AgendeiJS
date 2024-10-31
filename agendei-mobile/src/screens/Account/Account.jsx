@@ -5,6 +5,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from 'react-native'
 import { useState } from 'react'
 import { TextInputMask } from 'react-native-masked-text'
@@ -13,6 +14,8 @@ import styles from './styles.js'
 import Button from '../../components/Button/Button.jsx'
 import icon from '../../constants/icons/icons.js'
 import { colorsTheme } from '../../constants/theme/theme.js'
+
+import api from '../../constants/api/api.js'
 
 function Account(props) {
   const [name, setName] = useState('')
@@ -25,7 +28,7 @@ function Account(props) {
     try {
       const response = await api.post('/users/register', {
         name,
-        dateBirth,
+        date_birth: dateBirth,
         cell,
         email,
         password,
@@ -42,6 +45,7 @@ function Account(props) {
       }
     }
   }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -65,10 +69,10 @@ function Account(props) {
             style={styles.input}
             type={'datetime'}
             options={{
-              format: 'MM/DD/YYYY',
+              format: 'DD/MM/YYYY',
             }}
             value={dateBirth}
-            onChange={(text) => setDateBirth(text)}
+            onChangeText={(text) => setDateBirth(text)}
           />
         </View>
 
@@ -112,7 +116,7 @@ function Account(props) {
 
       <View style={styles.signUp}>
         <Text style={styles.text}>Já tenho conta. </Text>
-        <TouchableOpacity onPress={() => props.navigation.navigate('Login')}>
+        <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <Text style={styles.textBtn}>Fazer login.</Text>
         </TouchableOpacity>
       </View>

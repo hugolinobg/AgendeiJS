@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, View } from 'react-native'
+import { SafeAreaView, Text, View, Alert } from 'react-native'
 import { useState } from 'react'
 import { Calendar, LocaleConfig } from 'react-native-calendars'
 import { Picker } from '@react-native-picker/picker'
@@ -7,6 +7,8 @@ import styles from './styles'
 import Button from '../../components/Button/Button.jsx'
 
 import { ptBR } from '../../constants/calendar/calendar.js'
+
+import api from '../../constants/api/api.js'
 
 LocaleConfig.locales['pt-br'] = ptBR
 LocaleConfig.defaultLocale = 'pt-br'
@@ -20,8 +22,27 @@ function Schedule(props) {
   )
   const [selectedHour, setSelectedHour] = useState('')
 
-  function handleBooking() {
-    console.log(id_doctor, id_service, selectedDate, selectedHour)
+  async function handleBooking() {
+    try {
+      const response = await api.post('/appointments', {
+        id_doctor: id_doctor,
+        id_service: id_service,
+        booking_date: selectedDate,
+        booking_hour: selectedHour,
+      })
+
+      console.log(response.data)
+
+      if (response.data?.id_appointment) {
+        props.navigation.popToTop()
+      }
+    } catch (error) {
+      if (error.response?.data.error) {
+        Alert.alert(error.response.data.error)
+      } else {
+        Alert.alert('Ocorreu um erro. Tenta novamente mais tarde!')
+      }
+    }
   }
 
   return (

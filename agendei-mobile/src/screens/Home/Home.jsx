@@ -1,9 +1,14 @@
-import { FlatList, SafeAreaView, Text } from 'react-native'
+import { FlatList, SafeAreaView, Text, Alert } from 'react-native'
+import { useEffect, useState } from 'react'
 import styles from './styles'
-import { doctors } from '../../constants/data/data.js'
+
 import Doctor from '../../components/Doctor/Doctor.jsx'
 
+import api from '../../constants/api/api.js'
+
 function Home(props) {
+  const [doctors, SetDoctors] = useState([])
+
   function handleDoctor(id_doctor, name, specialty, icon) {
     props.navigation.navigate('Services', {
       id_doctor,
@@ -12,6 +17,26 @@ function Home(props) {
       icon,
     })
   }
+
+  async function handlesLoadDoctors() {
+     try {
+      const response = await api.get('/doctors')
+
+      if (response.data) {
+        SetDoctors(response.data)
+      }
+    } catch (error) {
+      if (error.response?.data.error) {
+        Alert.alert(error.response.data.error)
+      } else {
+        Alert.alert('Ocorreu um erro. Tenta novamente mais tarde!')
+      }
+    }
+  }
+
+  useEffect(() => {
+    handlesLoadDoctors()
+  }, [])
 
   return (
     <SafeAreaView style={styles.container}>

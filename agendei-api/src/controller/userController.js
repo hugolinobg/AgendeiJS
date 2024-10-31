@@ -36,12 +36,12 @@ async function findProfile(req, res) {
 
 async function create(req, res) {
   try {
-    const { name, date_birth, fone, email, password } = req.body
+    const { name, date_birth, cell, email, password } = req.body
 
     const user = await userServices.create(
       name,
       date_birth,
-      fone,
+      cell,
       email,
       password
     )
@@ -58,13 +58,13 @@ async function create(req, res) {
 async function put(req, res) {
   try {
     const id = req.params.id
-    const { name, date_birth, fone, email, password } = req.body
+    const { name, date_birth, cell, email, password } = req.body
 
     const user = await userServices.put(
       id,
       name,
       date_birth,
-      fone,
+      cell,
       email,
       password
     )

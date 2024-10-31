@@ -13,26 +13,26 @@ async function listByEmail(email) {
 }
 
 async function findProfile(id_user) {
-  let sql = `SELECT name, date_birth, fone, email FROM users WHERE id_user = ?`
+  let sql = `SELECT name, date_birth, cell, email FROM users WHERE id_user = ?`
 
   const user = await query(sql, [id_user])
 
   return user[0]
 }
 
-async function create(name, date_birth, fone, email, password) {
-  let sql = `INSERT INTO users (name, date_birth, fone, email, password) VALUES (?, ?, ?, ?, ?) 
+async function create(name, date_birth, cell, email, password) {
+  let sql = `INSERT INTO users (name, date_birth, cell, email, password) VALUES (?, ?, ?, ?, ?) 
   returning id_user`
 
-  const user = await query(sql, [name, date_birth, fone, email, password])
+  const user = await query(sql, [name, date_birth, cell, email, password])
 
   return user[0]
 }
 
-async function put(id_user, name, date_birth, fone, email, password) {
-  let sql = `UPDATE users SET name=?, date_birth=?, fone=?, email=?, password=? WHERE id_user = ?`
+async function put(id_user, name, date_birth, cell, email, password) {
+  let sql = `UPDATE users SET name=?, date_birth=?, cell=?, email=?, password=? WHERE id_user = ?`
 
-  await query(sql, [name, date_birth, fone, email, password, id_user])
+  await query(sql, [name, date_birth, cell, email, password, id_user])
 
   return { id_user }
 }
