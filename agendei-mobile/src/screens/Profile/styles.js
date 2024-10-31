@@ -4,16 +4,12 @@ import { colorsTheme, fontSizes } from '../../constants/theme/theme.js'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 12,
     backgroundColor: colorsTheme.white,
   },
 
   card: {
     padding: 15,
     borderWidth: 0.5,
-    // marginTop: 4,
-    // marginBottom: 4,
-    // borderRadius: 8,
     borderColor: colorsTheme.gray3,
   },
 

@@ -11,11 +11,18 @@ import { ptBR } from '../../constants/calendar/calendar.js'
 LocaleConfig.locales['pt-br'] = ptBR
 LocaleConfig.defaultLocale = 'pt-br'
 
-function Schedule() {
+function Schedule(props) {
+  const id_doctor = props.route.params.id_doctor
+  const id_service = props.route.params.id_service
+
   const [selectedDate, setSelectedDate] = useState(
     new Date().toISOString().slice(0, 10)
   )
   const [selectedHour, setSelectedHour] = useState('')
+
+  function handleBooking() {
+    console.log(id_doctor, id_service, selectedDate, selectedHour)
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -50,7 +57,11 @@ function Schedule() {
       </View>
 
       <View>
-        <Button text="Confirmar Reserva" theme="primary" />
+        <Button
+          text="Confirmar Reserva"
+          theme="primary"
+          onPress={handleBooking}
+        />
       </View>
     </SafeAreaView>
   )

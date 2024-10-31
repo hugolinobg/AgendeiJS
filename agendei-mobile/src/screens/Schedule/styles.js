@@ -8,7 +8,7 @@ export default StyleSheet.create({
     paddingLeft: 20,
     backgroundColor: colorsTheme.white,
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: 40,
   },
 
   theme: {

@@ -2,16 +2,13 @@ import { TouchableOpacity, Text, Alert } from 'react-native'
 import styles from './styles.js'
 
 function Button(props) {
-  function click() {
-    Alert.alert('clicou')
-  }
   return (
     <TouchableOpacity
       style={[
         styles.containerBtn,
         props.theme === 'danger' ? styles.danger : styles.primary,
       ]}
-      onPress={click}
+      onPress={props.onPress}
     >
       <Text style={styles.text}>{props.text}</Text>
     </TouchableOpacity>

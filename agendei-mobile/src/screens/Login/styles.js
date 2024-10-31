@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform, StatusBar } from 'react-native'
 import { colorsTheme, fontSizes } from '../../constants/theme/theme.js'
 
 export default StyleSheet.create({
@@ -6,7 +6,8 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     backgroundColor: colorsTheme.white,
-    padding: 40,
+    paddingBottom: 40,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 0 : 12,
   },
 
   header: {
@@ -19,6 +20,8 @@ export default StyleSheet.create({
   },
 
   forms: {
+    paddingLeft: 30,
+    paddingRight: 30,
     alignItems: 'center',
   },
 

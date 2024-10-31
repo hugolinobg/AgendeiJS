@@ -5,7 +5,6 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colorsTheme.white,
-    // justifyContent: 'space-between',
   },
 
   banner: {

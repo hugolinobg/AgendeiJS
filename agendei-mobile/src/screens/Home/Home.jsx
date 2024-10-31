@@ -2,9 +2,17 @@ import { FlatList, SafeAreaView, Text } from 'react-native'
 import styles from './styles'
 import { doctors } from '../../constants/data/data.js'
 import Doctor from '../../components/Doctor/Doctor.jsx'
-import icon from '../../constants/icons/icons.js'
 
-function Home() {
+function Home(props) {
+  function handleDoctor(id_doctor, name, specialty, icon) {
+    props.navigation.navigate('Services', {
+      id_doctor,
+      name,
+      specialty,
+      icon,
+    })
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>Agende os seus serviços médicos</Text>
@@ -16,9 +24,11 @@ function Home() {
         renderItem={({ item }) => {
           return (
             <Doctor
+              id_doctor={item.id_doctor}
               name={item.name}
-              icon={item.icon === 'M' ? icon.male : icon.female}
+              icon={item.icon}
               specialty={item.specialty}
+              onPress={handleDoctor}
             />
           )
         }}
