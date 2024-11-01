@@ -25,13 +25,11 @@ function Schedule(props) {
   async function handleBooking() {
     try {
       const response = await api.post('/appointments', {
-        id_doctor: id_doctor,
-        id_service: id_service,
+        id_doctor,
+        id_service,
         booking_date: selectedDate,
         booking_hour: selectedHour,
       })
-
-      console.log(response.data)
 
       if (response.data?.id_appointment) {
         props.navigation.popToTop()
@@ -70,9 +68,24 @@ function Schedule(props) {
               setSelectedHour(itemValue)
             }}
           >
+            <Picker.Item label="08:00" value="08:00" />
+            <Picker.Item label="08:30" value="08:30" />
             <Picker.Item label="09:00" value="09:00" />
             <Picker.Item label="09:30" value="09:30" />
             <Picker.Item label="10:00" value="10:00" />
+            <Picker.Item label="10:30" value="10:30" />
+            <Picker.Item label="11:00" value="11:00" />
+            <Picker.Item label="11:30" value="11:30" />
+            <Picker.Item label="13:00" value="13:00" />
+            <Picker.Item label="13:30" value="13:30" />
+            <Picker.Item label="14:00" value="14:00" />
+            <Picker.Item label="14:30" value="14:30" />
+            <Picker.Item label="15:00" value="15:00" />
+            <Picker.Item label="15:30" value="15:30" />
+            <Picker.Item label="16:00" value="16:00" />
+            <Picker.Item label="16:30" value="16:30" />
+            <Picker.Item label="17:00" value="17:00" />
+            <Picker.Item label="17:30" value="17:30" />
           </Picker>
         </View>
       </View>

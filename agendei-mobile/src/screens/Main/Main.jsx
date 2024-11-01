@@ -47,6 +47,7 @@ function Main() {
             )
           },
           tabBarShowLabel: false,
+          unmountOnBlur: true,
           tabBarIcon: ({ focused }) => {
             return (
               <Image
@@ -73,6 +74,7 @@ function Main() {
             )
           },
           tabBarShowLabel: false,
+          unmountOnBlur: true,
           tabBarIcon: ({ focused }) => {
             return (
               <Image

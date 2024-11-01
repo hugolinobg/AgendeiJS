@@ -7,16 +7,16 @@ async function findUser(id_user) {
 }
 
 async function create(
-  id_user,
-  id_docotr,
+  id_doctor,
   id_service,
+  id_user,
   booking_date,
   booking_hour
 ) {
   const appointment = await appointmentsModels.create(
-    id_user,
-    id_docotr,
+    id_doctor,
     id_service,
+    id_user,
     booking_date,
     booking_hour
   )
@@ -24,11 +24,11 @@ async function create(
   return appointment
 }
 
-async function put(id_user, id_docotr, id_service, booking_date, booking_hour) {
+async function put(id_doctor, id_service, id_user, booking_date, booking_hour) {
   const appointment = await appointmentsModels.put(
-    id_user,
-    id_docotr,
+    id_doctor,
     id_service,
+    id_user,
     booking_date,
     booking_hour
   )

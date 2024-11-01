@@ -18,12 +18,12 @@ async function findUser(req, res) {
 async function create(req, res) {
   try {
     const id_user = req.id_user
-    const { id_docotr, id_service, booking_date, booking_hour } = req.body
+    const { id_doctor, id_service, booking_date, booking_hour } = req.body
 
     const appointment = await appointmentsServices.create(
-      id_user,
-      id_docotr,
+      id_doctor,
       id_service,
+      id_user,
       booking_date,
       booking_hour
     )
@@ -40,15 +40,14 @@ async function create(req, res) {
 async function put(req, res) {
   try {
     const id_user = req.id_user
-    const id = req.params.id
-    const { name, specialty, icon } = req.body
+    const { id_doctor, id_service, booking_date, booking_hour } = req.body
 
     const appointment = await appointmentsServices.put(
+      id_doctor,
+      id_service,
       id_user,
-      id,
-      name,
-      specialty,
-      icon
+      booking_date,
+      booking_hour
     )
 
     return res.status(200).json(appointment)
@@ -66,8 +65,8 @@ async function deleted(req, res) {
     const id_appointment = req.params.id
 
     const appointment = await appointmentsServices.deleted(
-      id_appointment,
-      id_user
+      id_user,
+      id_appointment
     )
 
     return res.status(200).json(appointment)
