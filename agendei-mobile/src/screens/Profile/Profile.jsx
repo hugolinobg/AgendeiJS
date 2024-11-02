@@ -45,28 +45,32 @@ function Profile() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.card}>
-        <Text style={styles.title}>Nome:</Text>
-        <Text style={styles.text}>{name}</Text>
+      <View>
+        <View style={styles.card}>
+          <Text style={styles.title}>Nome:</Text>
+          <Text style={styles.text}>{name}</Text>
+        </View>
+
+        <View style={styles.card}>
+          <Text style={styles.date}>Data de Nascimento:</Text>
+          <Text style={styles.text}>{dateBirth}</Text>
+        </View>
+
+        <View style={styles.card}>
+          <Text style={styles.fone}>Fone:</Text>
+          <Text style={styles.text}>{cell}</Text>
+        </View>
+
+        <View style={styles.card}>
+          <Text style={styles.email}>E-mail:</Text>
+          <Text style={styles.text}>{email}</Text>
+        </View>
       </View>
 
-      <View style={styles.card}>
-        <Text style={styles.date}>Data de Nascimento:</Text>
-        <Text style={styles.text}>{dateBirth}</Text>
-      </View>
-
-      <View style={styles.card}>
-        <Text style={styles.fone}>Fone:</Text>
-        <Text style={styles.text}>{cell}</Text>
-      </View>
-
-      <View style={styles.card}>
-        <Text style={styles.email}>E-mail:</Text>
-        <Text style={styles.text}>{email}</Text>
-      </View>
-
-      <View style={styles.card}>
-        <Button text="Desconectar" theme="danger" onPress={handleLogout} />
+      <View style={styles.button}>
+        <View style={[styles.card, styles.buttonCard]}>
+          <Button text="Desconectar" theme="danger" onPress={handleLogout} />
+        </View>
       </View>
     </SafeAreaView>
   )

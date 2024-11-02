@@ -1,5 +1,5 @@
 import { SafeAreaView, Text, View, Alert } from 'react-native'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Calendar, LocaleConfig } from 'react-native-calendars'
 import { Picker } from '@react-native-picker/picker'
 import styles from './styles'
@@ -21,6 +21,7 @@ function Schedule(props) {
     new Date().toISOString().slice(0, 10)
   )
   const [selectedHour, setSelectedHour] = useState('')
+  const [time, setTime] = useState([])
 
   async function handleBooking() {
     try {
@@ -42,6 +43,26 @@ function Schedule(props) {
       }
     }
   }
+
+  async function schedule() {
+    try {
+      const response = await api.get('/schedules')
+
+      if (response.data) {
+        setTime(response.data)
+      }
+    } catch (error) {
+      if (error.response?.data.error) {
+        Alert.alert(error.response.data.error)
+      } else {
+        Alert.alert('Ocorreu um erro. Tenta novamente mais tarde!')
+      }
+    }
+  }
+
+  useEffect(() => {
+    schedule()
+  }, [])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -68,24 +89,15 @@ function Schedule(props) {
               setSelectedHour(itemValue)
             }}
           >
-            <Picker.Item label="08:00" value="08:00" />
-            <Picker.Item label="08:30" value="08:30" />
-            <Picker.Item label="09:00" value="09:00" />
-            <Picker.Item label="09:30" value="09:30" />
-            <Picker.Item label="10:00" value="10:00" />
-            <Picker.Item label="10:30" value="10:30" />
-            <Picker.Item label="11:00" value="11:00" />
-            <Picker.Item label="11:30" value="11:30" />
-            <Picker.Item label="13:00" value="13:00" />
-            <Picker.Item label="13:30" value="13:30" />
-            <Picker.Item label="14:00" value="14:00" />
-            <Picker.Item label="14:30" value="14:30" />
-            <Picker.Item label="15:00" value="15:00" />
-            <Picker.Item label="15:30" value="15:30" />
-            <Picker.Item label="16:00" value="16:00" />
-            <Picker.Item label="16:30" value="16:30" />
-            <Picker.Item label="17:00" value="17:00" />
-            <Picker.Item label="17:30" value="17:30" />
+            {time.map((item) => {
+              return (
+                <Picker.Item
+                  itemIndex={item.id_schedule}
+                  label={item.time}
+                  value={item.time}
+                />
+              )
+            })}
           </Picker>
         </View>
       </View>

@@ -2,6 +2,7 @@ import { Router } from 'express'
 import doctorController from '../controller/doctorController.js'
 import userController from '../controller/userController.js'
 import appointmentsController from '../controller/appointmentsController.js'
+import schedulesController from '../controller/schedulesController.js'
 import auth from '../middlewares/auth.js'
 
 const router = Router()
@@ -49,6 +50,23 @@ router.delete(
   '/api/v1/appointments/:id',
   auth.ValidateToken,
   appointmentsController.deleted
+)
+
+router.get(
+  '/api/v1/schedules',
+  auth.ValidateToken,
+  schedulesController.findUser
+)
+router.post('/api/v1/schedules', auth.ValidateToken, schedulesController.create)
+router.put(
+  '/api/v1/schedules/:id',
+  auth.ValidateToken,
+  schedulesController.put
+)
+router.delete(
+  '/api/v1/schedules/:id',
+  auth.ValidateToken,
+  schedulesController.deleted
 )
 
 export default router

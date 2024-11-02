@@ -5,6 +5,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colorsTheme.white,
+    justifyContent: 'space-between',
   },
 
   card: {
@@ -40,5 +41,13 @@ export default StyleSheet.create({
   text: {
     fontSize: fontSizes.md,
     color: colorsTheme.black,
+  },
+
+  button: {
+    marginBottom: 50,
+  },
+
+  buttonCard: {
+    borderWidth: 0,
   },
 })
