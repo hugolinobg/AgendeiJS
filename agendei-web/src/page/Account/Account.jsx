@@ -1,4 +1,5 @@
 import './Account.jsx'
+import { Link } from 'react-router-dom'
 import logo from '../../assets/image/logo.png'
 import wallpaper from '../../assets/image/fundo.png'
 
@@ -14,15 +15,37 @@ function Account() {
                 alt="logo agendei na cor azul"
                 className="logo mb-4"
               />
-              <h5 className="mb-5">
-                Gerencie seus agendamentos de forma descomplicada.
-              </h5>
+              <h5 className="mb-5">Crie sua conta agora mesmo.</h5>
             </div>
 
             <div>
-              <h3 className="mb-4 text-secondary">Acesse sua conta</h3>
+              <h3 className="mb-4 text-secondary">Preencha os campos abaixo</h3>
 
               <div className="mt-4">
+                <input
+                  type="text"
+                  placeholder="Nome"
+                  className="form-control"
+                />
+              </div>
+
+              <div className="mt-2">
+                <input
+                  type="date"
+                  placeholder="Data de Nascimento"
+                  className="form-control"
+                />
+              </div>
+
+              <div className="mt-2">
+                <input
+                  type="text"
+                  placeholder="(18) 99654-9785"
+                  className="form-control"
+                />
+              </div>
+
+              <div className="mt-2">
                 <input
                   type="email"
                   placeholder="E-mail"
@@ -38,14 +61,24 @@ function Account() {
                 />
               </div>
 
+              <div className="mt-2">
+                <input
+                  type="password"
+                  placeholder="Confirme a senha"
+                  className="form-control"
+                />
+              </div>
+
               <div className="mt-3 mb-5">
-                <button className="btn btn-primary w-100">Login</button>
+                <button className="btn btn-primary w-100">
+                  Criar minha conta
+                </button>
               </div>
             </div>
 
             <div>
-              <span className="me-1">Não tenho uma conta.</span>
-              <a href="#">Criar agora</a>
+              <span className="me-1">Já tenho uma conta.</span>
+              <Link to="/">Acessar agora!</Link>
             </div>
           </form>
         </div>

@@ -1,8 +1,15 @@
 import './Login.css'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../assets/image/logo.png'
 import wallpaper from '../../assets/image/fundo.png'
 
 function Login() {
+  const navigate = useNavigate()
+
+  const handleLogin = () => {
+    navigate('/home')
+  }
+
   return (
     <>
       <div className="row">
@@ -39,13 +46,19 @@ function Login() {
               </div>
 
               <div className="mt-3 mb-5">
-                <button className="btn btn-primary w-100">Login</button>
+                <button
+                  onClick={handleLogin}
+                  className="btn btn-primary w-100"
+                  type="button"
+                >
+                  Login
+                </button>
               </div>
             </div>
 
             <div>
               <span className="me-1">Não tenho uma conta.</span>
-              <a href="#" >Criar agora</a>
+              <Link to="/register">Criar agora</Link>
             </div>
           </form>
         </div>
