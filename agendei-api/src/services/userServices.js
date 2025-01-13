@@ -39,6 +39,7 @@ async function create(name, date_birth, cell, email, password) {
 
   user.token = jwt.CreateToken(user.id_user)
 
+  
   return user
 }
 

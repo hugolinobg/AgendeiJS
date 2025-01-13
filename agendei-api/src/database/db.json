@@ -1,0 +1,758 @@
+{
+    "type": "database",
+    "name": "agendei",
+    "objects": [
+        {
+            "type": "table",
+            "database": null,
+            "name": "admins",
+            "withoutRowId": false,
+            "strict": false,
+            "ddl": "CREATE TABLE admins (\n    id_admin   INTEGER PRIMARY KEY  AUTOINCREMENT,\n    name      VARCHAR (50),\n    email     VARCHAR (100),\n    password  VARCHAR (100), \n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP\n)",
+            "columns": [
+                {
+                    "name": "id_admin",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY  AUTOINCREMENT"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "email",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "password",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "created_at",
+                    "type": "TIMESTAMP",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT CURRENT_TIMESTAMP"
+                        }
+                    ]
+                },
+                {
+                    "name": "updated_at",
+                    "type": "DATETIME",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT CURRENT_TIMESTAMP\n"
+                        }
+                    ]
+                }
+            ],
+            "rows": [
+            ]
+        },
+        {
+            "type": "table",
+            "database": null,
+            "name": "appointments",
+            "withoutRowId": false,
+            "strict": false,
+            "ddl": "CREATE TABLE appointments (id_appointment INTEGER PRIMARY KEY AUTOINCREMENT, id_doctor INTEGER, id_service INTEGER, id_user INTEGER, booking_date DATE, booking_hour VARCHAR (5), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (id_doctor) REFERENCES doctors (id_doctor), FOREIGN KEY (id_service) REFERENCES services (id_service), FOREIGN KEY (id_user) REFERENCES users (id_user))",
+            "columns": [
+                {
+                    "name": "id_appointment",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY AUTOINCREMENT"
+                        }
+                    ]
+                },
+                {
+                    "name": "id_doctor",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "id_service",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "id_user",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "booking_date",
+                    "type": "DATE"
+                },
+                {
+                    "name": "booking_hour",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "created_at",
+                    "type": "TIMESTAMP",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT CURRENT_TIMESTAMP"
+                        }
+                    ]
+                },
+                {
+                    "name": "updated_at",
+                    "type": "DATETIME",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT CURRENT_TIMESTAMP"
+                        }
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "type": "FOREIGN KEY",
+                    "definition": "FOREIGN KEY (id_doctor) REFERENCES doctors (id_doctor)"
+                },
+                {
+                    "type": "FOREIGN KEY",
+                    "definition": "FOREIGN KEY (id_service) REFERENCES services (id_service)"
+                },
+                {
+                    "type": "FOREIGN KEY",
+                    "definition": "FOREIGN KEY (id_user) REFERENCES users (id_user)"
+                }
+            ],
+            "rows": [
+                [
+                    21,
+                    1,
+                    1,
+                    1,
+                    "2024-11-29",
+                    "11:00",
+                    "2024-11-01 17:05:11",
+                    "2024-11-01 17:05:11"
+                ],
+                [
+                    22,
+                    7,
+                    4,
+                    1,
+                    "2024-11-14",
+                    "16:30",
+                    "2024-11-01 17:06:41",
+                    "2024-11-01 17:06:41"
+                ],
+                [
+                    23,
+                    7,
+                    1,
+                    1,
+                    "2024-11-13",
+                    "19:00",
+                    "2024-11-02 11:45:11",
+                    "2024-11-02 11:45:11"
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "database": null,
+            "name": "doctors",
+            "withoutRowId": false,
+            "strict": false,
+            "ddl": "CREATE TABLE doctors (\n    id_doctor  INTEGER PRIMARY KEY  AUTOINCREMENT,\n    name       VARCHAR (50),\n    specialty  VARCHAR (50),\n    icon       VARCHAR (10), \n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP\n)",
+            "columns": [
+                {
+                    "name": "id_doctor",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY  AUTOINCREMENT"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "specialty",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "icon",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "created_at",
+                    "type": "TIMESTAMP",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT CURRENT_TIMESTAMP"
+                        }
+                    ]
+                },
+                {
+                    "name": "updated_at",
+                    "type": "DATETIME",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT CURRENT_TIMESTAMP\n"
+                        }
+                    ]
+                }
+            ],
+            "rows": [
+                [
+                    1,
+                    "Dr. Armando Matheus",
+                    "Ginecologia e Obstetrícia",
+                    "M",
+                    "2024-10-25 13:47:52",
+                    "2024-10-25 10:47:52"
+                ],
+                [
+                    2,
+                    "Dra. Ana Beatriz Rutini",
+                    "Cardiologista",
+                    "F",
+                    "2024-10-25 13:47:52",
+                    "2024-10-25 10:47:52"
+                ],
+                [
+                    3,
+                    "Dr. Antônio Almeida Souza",
+                    "Pediatria",
+                    "M",
+                    "2024-10-25 13:47:52",
+                    "2024-10-25 10:47:52"
+                ],
+                [
+                    4,
+                    "Dra. Roberta Martins",
+                    "Clínica Geral",
+                    "F",
+                    "2024-10-25 13:47:52",
+                    "2024-10-25 10:47:52"
+                ],
+                [
+                    5,
+                    "Dra. Nise da Silveira",
+                    "Cirurgia Plástica",
+                    "F",
+                    "2024-10-25 13:47:52",
+                    "2024-10-25 10:47:52"
+                ],
+                [
+                    6,
+                    "Dr. Jonatan Silvestre",
+                    "Pediatria",
+                    "M",
+                    "2024-10-25 13:47:52",
+                    "2024-10-25 10:47:52"
+                ],
+                [
+                    7,
+                    "Dr. Adriano Melo",
+                    "Clínica Geral",
+                    "M",
+                    "2024-10-25 13:47:52",
+                    "2024-10-25 10:47:52"
+                ],
+                [
+                    8,
+                    "Dr. José Eduardo Souza",
+                    "Clínica Geral",
+                    "M",
+                    "2024-10-25 13:47:52",
+                    "2024-10-25 10:47:52"
+                ],
+                [
+                    9,
+                    "Dra. Valeria Petri",
+                    "Cirurgia Plástica",
+                    "F",
+                    "2024-10-25 13:47:52",
+                    "2024-10-25 10:47:52"
+                ],
+                [
+                    10,
+                    "Dr. Hugolino B. Guimarães",
+                    "Cardiologista",
+                    "M",
+                    "2024-10-28 12:49:00",
+                    "2024-10-28 12:49:00"
+                ],
+                [
+                    12,
+                    "Dr. João Vitor Gomes de Andrade",
+                    "Pediatria",
+                    "M",
+                    "2024-10-28 18:30:32",
+                    "2024-10-28 18:30:32"
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "database": null,
+            "name": "doctors_services",
+            "withoutRowId": false,
+            "strict": false,
+            "ddl": "CREATE TABLE doctors_services (\n\tid_doctor_service  INTEGER PRIMARY KEY  AUTOINCREMENT,\n      \tid_doctor  INTEGER,\n\tid_service INTEGER,\n    \tprice      DECIMAL(9,2), \n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,\n\t\n\tforeign key (id_doctor) references doctors(id_doctor),\n\tforeign key (id_service) references services(id_service)\t\n)",
+            "columns": [
+                {
+                    "name": "id_doctor_service",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY  AUTOINCREMENT"
+                        }
+                    ]
+                },
+                {
+                    "name": "id_doctor",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "id_service",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "price",
+                    "type": "DECIMAL (9, 2)"
+                },
+                {
+                    "name": "created_at",
+                    "type": "TIMESTAMP",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT CURRENT_TIMESTAMP"
+                        }
+                    ]
+                },
+                {
+                    "name": "updated_at",
+                    "type": "DATETIME",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT CURRENT_TIMESTAMP"
+                        }
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "type": "FOREIGN KEY",
+                    "definition": "foreign key (id_doctor) references doctors(id_doctor)"
+                },
+                {
+                    "type": "FOREIGN KEY",
+                    "definition": "foreign key (id_service) references services(id_service)\t\n"
+                }
+            ],
+            "rows": [
+                [
+                    1,
+                    1,
+                    1,
+                    299.99,
+                    "2024-10-28 15:58:12",
+                    "2024-10-28 16:00:05"
+                ],
+                [
+                    2,
+                    5,
+                    2,
+                    650,
+                    "2024-10-28 15:57:00",
+                    "2024-10-28 15:58:01"
+                ],
+                [
+                    3,
+                    7,
+                    4,
+                    1700,
+                    "2024-10-28 17:34:30",
+                    "2024-10-28 17:34:30"
+                ],
+                [
+                    4,
+                    9,
+                    3,
+                    5000,
+                    "2024-10-28 17:35:13",
+                    "2024-10-28 17:35:13"
+                ],
+                [
+                    5,
+                    7,
+                    1,
+                    299.99,
+                    "2024-10-28 18:51:13",
+                    "2024-10-28 18:51:13"
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "database": null,
+            "name": "schedules",
+            "withoutRowId": false,
+            "strict": false,
+            "ddl": "CREATE TABLE schedules (id_schedule INTEGER PRIMARY KEY, time VARCHAR (5), created_at TIMESTAMP DEFAULT (CURRENT_TIMESTAMP), updated_at DATETIME DEFAULT (CURRENT_TIMESTAMP))",
+            "columns": [
+                {
+                    "name": "id_schedule",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY"
+                        }
+                    ]
+                },
+                {
+                    "name": "time",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "created_at",
+                    "type": "TIMESTAMP",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT (CURRENT_TIMESTAMP)"
+                        }
+                    ]
+                },
+                {
+                    "name": "updated_at",
+                    "type": "DATETIME",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT (CURRENT_TIMESTAMP)"
+                        }
+                    ]
+                }
+            ],
+            "rows": [
+                [
+                    2,
+                    "08:30",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    3,
+                    "09:00",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    4,
+                    "09:30",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    5,
+                    "10:00",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    6,
+                    "10:30",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    7,
+                    "11:00",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    8,
+                    "11:30",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    9,
+                    "12:00",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    10,
+                    "13:30",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    11,
+                    "14:00",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    12,
+                    "14:30",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    13,
+                    "15:00",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    14,
+                    "15:30",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    15,
+                    "16:00",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    16,
+                    "16:30",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    17,
+                    "17:00",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    18,
+                    "17:30",
+                    "2024-11-02 10:27:11",
+                    "2024-11-02 10:27:11"
+                ],
+                [
+                    19,
+                    "18:00",
+                    "2024-11-02 11:05:21",
+                    "2024-11-02 11:05:21"
+                ],
+                [
+                    20,
+                    "18:30",
+                    "2024-11-02 11:07:58",
+                    "2024-11-02 11:07:58"
+                ],
+                [
+                    21,
+                    "19:00",
+                    "2024-11-02 11:09:14",
+                    "2024-11-02 11:09:14"
+                ],
+                [
+                    22,
+                    "19:30",
+                    "2024-11-02 11:13:15",
+                    "2024-11-02 11:13:15"
+                ],
+                [
+                    23,
+                    "20:00",
+                    "2024-11-02 11:14:26",
+                    "2024-11-02 11:14:26"
+                ],
+                [
+                    24,
+                    "08:00",
+                    "2024-11-02 11:19:42",
+                    "2024-11-02 11:19:42"
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "database": null,
+            "name": "services",
+            "withoutRowId": false,
+            "strict": false,
+            "ddl": "CREATE TABLE services (\n    id_service  INTEGER PRIMARY KEY  AUTOINCREMENT,\n    description VARCHAR (50), \n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP\n)",
+            "columns": [
+                {
+                    "name": "id_service",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY  AUTOINCREMENT"
+                        }
+                    ]
+                },
+                {
+                    "name": "description",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "created_at",
+                    "type": "TIMESTAMP",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT CURRENT_TIMESTAMP"
+                        }
+                    ]
+                },
+                {
+                    "name": "updated_at",
+                    "type": "DATETIME",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT CURRENT_TIMESTAMP\n"
+                        }
+                    ]
+                }
+            ],
+            "rows": [
+                [
+                    1,
+                    "Consulta Médica",
+                    "2024-10-28 18:53:49",
+                    "2024-10-28 18:53:49"
+                ],
+                [
+                    2,
+                    "Drenagem Linfática",
+                    "2024-10-28 18:53:49",
+                    "2024-10-28 18:53:49"
+                ],
+                [
+                    3,
+                    "Lipoaspiração",
+                    "2024-10-28 18:53:49",
+                    "2024-10-28 18:53:49"
+                ],
+                [
+                    4,
+                    "Mamoplastia",
+                    "2024-10-28 18:53:49",
+                    "2024-10-28 18:53:49"
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "database": null,
+            "name": "users",
+            "withoutRowId": false,
+            "strict": false,
+            "ddl": "CREATE TABLE users (id_user INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR (255), date_birth VARCHAR (10), cell VARCHAR (20), email VARCHAR (255), password VARCHAR (255), created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP)",
+            "columns": [
+                {
+                    "name": "id_user",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY AUTOINCREMENT"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "date_birth",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "cell",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "email",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "password",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "created_at",
+                    "type": "DATETIME",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT CURRENT_TIMESTAMP"
+                        }
+                    ]
+                },
+                {
+                    "name": "updated_at",
+                    "type": "DATETIME",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT CURRENT_TIMESTAMP"
+                        }
+                    ]
+                }
+            ],
+            "rows": [
+                [
+                    1,
+                    "Hugolino B. Guimarães",
+                    "26\/09\/1993",
+                    "(18) 99696-5987",
+                    "hugolino.guimaraes@hbgsystem.com.br",
+                    "$2b$10$iOBACVgf0RqRJb0zFGa3U.KTxJ64bo.6A\/tdP6aLLH9pAMiSpCxNu",
+                    "2024-10-28 13:53:05",
+                    "2024-10-28 13:53:05"
+                ],
+                [
+                    4,
+                    "João Andrade",
+                    "01\/12\/2003",
+                    "(18) 99696-5987",
+                    "joao.andrade@hbgsystem.com.br",
+                    "$2b$10$iyCC9fp\/6XJTLYj.pq71Oeg0ctwH2tC1kguhKZfC9tfK65ym\/PiRy",
+                    "2024-10-28 16:29:42",
+                    "2024-10-28 16:29:42"
+                ],
+                [
+                    10,
+                    "Pedro Henrique Gomes de Andrade",
+                    "13\/12\/1997",
+                    "(18) 96525-3987",
+                    "pedro.andrade@teste.com.br",
+                    "$2b$10$P6IMy8GlrH0Ysq9ghL9OgugYfYZ5R40QPtowMZdZF5.F3ClQJefjq",
+                    "2024-10-31 16:26:55",
+                    "2024-10-31 16:26:55"
+                ]
+            ]
+        }
+    ]
+}

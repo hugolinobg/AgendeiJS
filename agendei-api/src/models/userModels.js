@@ -22,7 +22,7 @@ async function findProfile(id_user) {
 
 async function create(name, date_birth, cell, email, password) {
   let sql = `INSERT INTO users (name, date_birth, cell, email, password) VALUES (?, ?, ?, ?, ?) 
-  returning id_user`
+  returning id_user, name, date_birth, cell, email`
 
   const user = await query(sql, [name, date_birth, cell, email, password])
 

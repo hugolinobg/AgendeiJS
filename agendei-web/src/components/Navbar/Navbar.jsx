@@ -38,7 +38,7 @@ const Navbar = () => {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to="/docotrs"
+                to="/doctors"
               >
                 Médicos
               </Link>
@@ -58,7 +58,7 @@ const Navbar = () => {
                 </button>
                 <ul className="dropdown-menu dropdown-menu-end">
                   <li>
-                    <Link className="dropdown-item" to="#">
+                    <Link className="dropdown-item" to="/profile">
                       Meu Perfil
                     </Link>
                   </li>
