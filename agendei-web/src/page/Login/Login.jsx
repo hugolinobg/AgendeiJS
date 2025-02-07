@@ -1,5 +1,5 @@
 import './Login.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 import logo from '../../assets/image/logo.png'
@@ -17,14 +17,14 @@ function Login() {
     setMessage('')
 
     try {
-      const response = await api.post('/users/login', {
+      const response = await api.post('/admin/login', {
         email,
         password,
       })
 
       if (response.data) {
         localStorage.setItem('sessionToken', response.data.token)
-        localStorage.setItem('sessionUser', response.data.id_user)
+        localStorage.setItem('sessionUser', response.data.id_admin)
         localStorage.setItem('sessionName', response.data.name)
         localStorage.setItem('sessionDateBirth', response.data.date_birth)
         localStorage.setItem('sessionDateCell', response.data.cell)
@@ -101,10 +101,10 @@ function Login() {
               </div>
             )}
 
-            <div>
+            {/* <div>
               <span className="me-1">Não tenho uma conta.</span>
               <Link to="/register">Criar agora</Link>
-            </div>
+            </div> */}
           </form>
         </div>
 

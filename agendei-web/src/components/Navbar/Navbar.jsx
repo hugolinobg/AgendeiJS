@@ -43,6 +43,16 @@ const Navbar = () => {
                 Médicos
               </Link>
             </li>
+
+            <li className="nav-item">
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                to="/register"
+              >
+                Cadastra
+              </Link>
+            </li>
           </ul>
 
           <ul className="navbar-nav">

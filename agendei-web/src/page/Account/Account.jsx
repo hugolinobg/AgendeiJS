@@ -2,6 +2,8 @@ import './Account.jsx'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
+import Navbar from '../../components/Navbar/Navbar.jsx'
+
 import logo from '../../assets/image/logo.png'
 import wallpaper from '../../assets/image/fundo.png'
 
@@ -29,7 +31,7 @@ function Account() {
     }
 
     try {
-      const response = await api.post('users/register', {
+      const response = await api.post('admin/register', {
         name,
         date_birth: new Intl.DateTimeFormat('pt-BR', {
           dateStyle: 'short',
@@ -41,7 +43,7 @@ function Account() {
 
       if (response.data) {
         localStorage.setItem('sessionToken', response.data.token)
-        localStorage.setItem('sessionUser', response.data.id_user)
+        localStorage.setItem('sessionUser', response.data.id_admin)
         localStorage.setItem('sessionName', response.data.name)
         localStorage.setItem('sessionDateBirth', response.data.date_birth)
         localStorage.setItem('sessionDateCell', response.data.cell)
@@ -51,7 +53,7 @@ function Account() {
           'Authorization'
         ] = `Bearer ${response.data.token}`
 
-        navigate('/')
+        navigate('/home')
       } else {
         setMessage('Erro ao efetuar login. Tente novamente mais tarde.')
       }
@@ -66,6 +68,8 @@ function Account() {
 
   return (
     <>
+      <Navbar />
+
       <div className="row">
         <div className="col-sm-5 d-flex justify-content-center align-items-center text-center">
           <form className="form-signin">
